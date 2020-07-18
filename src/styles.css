@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.table-holder{
+    background-color:white !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    
+}
+.watermark {
+    opacity: 0.5;
+    color: BLACK;
+    position: fixed;
+    top: auto;
+    left: 80%;
+}

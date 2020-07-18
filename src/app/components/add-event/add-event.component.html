@@ -1,0 +1,71 @@
+
+<div class="container-fluid">
+    <div class="row">
+    
+            
+        <div class="col-md-6  table-holder">
+            <p *ngIf="!evnts"><em>Loading...</em></p>  
+  
+            <div class="mt-4">
+            
+            </div>
+            <table class='table table-striped ' *ngIf="evnts">  
+                <thead>  
+                    <tr>  
+                        <th>Tournament</th>  
+                        <th>Event</th>  
+                        <th>Date</th>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                    <tr *ngFor="let cnt of evnts">  
+                        <td>{{ cnt.tournamentName }}</td>  
+                        <td>{{ cnt.eventName }}</td>  
+                        <td>{{ cnt.eventDate }}</td>  
+                        <button (click)="delete(cnt.eventId)"  class="btn btn btn-danger">Delete</button>
+                    
+                </tbody>  
+            </table> 
+        </div>
+        <div class="col-md-6  input">
+            <form action="" [formGroup]="EventForm" style="margin-bottom: 10px;">
+                <div class="form-row">
+                  <div class="col">
+                    <input #Name type="text" class="form-control" id="eventName" required placeholder="Event name" formControlName="eventName">
+                  </div>
+                  <div class="col">
+                    <input #Date type="text" class="form-control" id="eventDate" required placeholder="Date " id="eventDate" formControlName="eventDate">
+                  
+                </div>
+                  <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                    {{TournamentName}}
+                                </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <div *ngFor="let tournament of tournament">
+                                <a (click)="SelectedTournament(tournament.tournamentId)" class="dropdown-item">{{tournament.name}}</a>
+                            </div>
+                         
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+                <button (click)="onFormSubmit(Name.value,Date.value)" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">Add</button>
+              </form>
+              <div class="watermark">
+                <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG" width="300px" alt="">
+          </div>
+        </div>
+
+     
+
+<!-- <p>  
+    <button [routerLink]="['/Add-countries']" class="btn btn btn-outline-primary"> Create New</button>
+</p> -->
+
+        
+    </div>
+</div>

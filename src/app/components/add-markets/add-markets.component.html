@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+    
+            
+        <div class="col-md-6  table-holder">
+            <p *ngIf="!market"><em>Loading...</em></p>  
+  
+            <div class="mt-4">
+            
+            </div>
+            <table class='table table-striped ' *ngIf="market">  
+                <thead>  
+                    <tr>  
+                        
+                        <th>Markets</th>  
+                       
+                        <th>Actions</th>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                    <tr *ngFor="let cnt of market">  
+                        <td>{{ cnt.marketType }}</td>  
+                        <td>  
+                                <button  class="btn btn btn-success">Edit</button> |
+                            <button (click)="delete(cnt.marketId)"  class="btn btn btn-danger">Delete</button>
+                        </td>  
+                    </tr>  
+                </tbody>  
+            </table> 
+        </div>
+
+        <div class="col-md-6  input">
+            <form action="" [formGroup]="MarketForm" style="margin-bottom: 10px;" >
+                <div class="form-row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="marketType" required placeholder="Market Type Name" formControlName="marketType">
+                  </div>
+               
+                </div>
+                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">Add</button>
+              </form>
+              <div class="watermark">
+                <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG" width="300px" alt="">
+          </div>
+        </div>
+
+    </div>
+</div>
+
+

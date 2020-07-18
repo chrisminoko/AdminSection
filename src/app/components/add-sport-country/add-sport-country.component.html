@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="row">
+    
+            
+        <div class="col-md-6  table-holder">
+            <p *ngIf="!sportCountryVm"><em>Loading...</em></p>  
+  
+            <div class="mt-4">
+            
+            </div>
+            <table class='table table-striped ' *ngIf="sportCountryVm">  
+                <thead>  
+                    <tr>  
+                        <th>Id</th>  
+                        <th>Country</th>  
+                        <th>Logo</th>  
+                        <th>Sport</th>  
+                        <th>Logo</th>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                    <tr *ngFor="let cnt of sportCountryVm">  
+                        <td>{{ cnt.sportCountryId }}</td>  
+                        <td>{{ cnt.countryname }}</td>  
+                        <td><img  style="background-color: #643e94"  src="{{cnt.imageurl}}" width="50" height="50" alt=""></td>  
+                        <td>{{ cnt.sportname }}</td>  
+                        <td>  <img src="https://www.countryflags.io/{{cnt.flagurl}}/flat/64.png" alt=""> </td>
+                       
+                        <td>  
+                                <button  class="btn btn btn-success">Edit</button> |
+                            <button (click)="delete(cnt.sportCountryId)"  class="btn btn btn-danger">Delete</button>
+                        </td>  
+                    </tr>  
+                </tbody>  
+            </table> 
+        </div>
+
+        <div class="col-md-6  input">
+            <div class="form-row">
+                <div class="col">
+                    <div class="dropdown">
+                        <button  class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                    {{sportName}}
+                                </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <div *ngFor="let sports of sport">
+                                <a (click)="SelectedSport(sports.sportId)" class="dropdown-item">{{sports.name}}</a>
+                            </div>
+                           
+                         
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                    {{countryName}}
+                                </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <div *ngFor="let country of country">
+                                <a (click)="SelectedCountry(country.countryid)" class="dropdown-item">{{country.name}}</a>
+                            </div>
+                           
+                         
+                        </div>
+                    </div>
+                   
+
+                </div>
+                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">Map</button>
+              </div>
+
+                
+          
+           
+            <div class="watermark">
+                <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG" width="300px" alt="">
+          </div>
+        </div>
+
+<!-- <p>  
+    <button [routerLink]="['/Add-countries']" class="btn btn btn-outline-primary"> Create New</button>
+</p> -->
+
+        
+    </div>
+</div>

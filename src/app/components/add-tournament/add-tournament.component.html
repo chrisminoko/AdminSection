@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-md-6  table-holder">
+            <p *ngIf="!tournament"><em>Loading...</em></p>
+
+            <div class="mt-4">
+
+            </div>
+            <table class='table table-striped ' *ngIf="tournament">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tournament Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cnt of tournament">
+                        <td>{{ cnt.tournamentId }}</td>
+                        <td>{{ cnt.name }}</td>
+
+                        <td>
+                            <button class="btn btn btn-success">Edit</button> |
+                            <button (click)="delete(cnt.tournamentId)" class="btn btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6  input">
+            <form action="" [formGroup]="tournamentForm" style="margin-bottom: 10px;">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="name" required placeholder="Country name"
+                            formControlName="name">
+                    </div>
+                </div>
+                <button (click)="onFormSubmit()"
+                    style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;"
+                    class="btn btn btn-primary btn-block">Add</button>
+            </form>
+            <div class="watermark">
+                <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG"
+                    width="300px" alt="">
+            </div>
+        </div>
+
+        <!-- <p>  
+    <button [routerLink]="['/Add-countries']" class="btn btn btn-outline-primary"> Create New</button>
+</p> -->
+
+
+    </div>
+</div>
