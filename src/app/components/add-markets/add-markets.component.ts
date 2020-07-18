@@ -25,11 +25,11 @@ export class AddMarketsComponent implements OnInit {
   getMarket(){
     return this._marketservice.getMarket().subscribe((data:any)=>{
       this.market=data;
-      console.log("BetTypes : "+this.market)
+      console.log("Markets : "+this.market)
     });
   }
 
-  Addbettype(market:markets){
+  AddMarkets(market:markets){
     if(market!=undefined && market !=null){
       if(this.SportUpdate==null){
         market.marketId=this.market.length+1;
@@ -59,7 +59,7 @@ export class AddMarketsComponent implements OnInit {
 
   onFormSubmit(){
     const sport=this.MarketForm.value;
-    this.Addbettype(sport);
+    this.AddMarkets(sport);
     this.getMarket();
   }
 
