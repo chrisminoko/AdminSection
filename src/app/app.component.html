@@ -16,7 +16,6 @@
           <li><a  [routerLink]="['AddSport']">Sport</a></li>
           <li><a [routerLink]="['/AddCountry']">Countries</a></li>
           <li><a  [routerLink]="['AddTournament']" >Tournaments</a></li>
-          <li><a  [routerLink]="['AddEvents']" >Events</a></li>
           <li><a  [routerLink]="['/AddMarket']">Markets</a></li>
           <li><a  [routerLink]="['AddBettype']">Bet Types</a></li>
         </ul>
@@ -26,9 +25,9 @@
         <ul class="collapse list-unstyled" id="pageSubmenu">
           <li><a [routerLink]="['MapSportCountry']">Asign Sport to Country</a></li>
           <li><a [routerLink]="['MergeJoin']">Quick Map</a></li>
-          <li><a >Asign Events to Tournament</a></li>
-          <li><a >Asign Bet Types to Markets</a></li>
-          <li><a >Asign Odds Types to Events</a></li>
+          <li><a  [routerLink]="['AddEvents']" >Assign Event to Tournament</a></li>
+          <li><a [routerLink]="['AddMarketBettype']">Asign Bet Types to Markets</a></li>
+          <li><a [routerLink]="['AddEvents']">Asign Odds Types to Events</a></li>
         </ul>
       </li>
       <li>

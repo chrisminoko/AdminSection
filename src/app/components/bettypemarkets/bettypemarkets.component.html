@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+    
+            
+        <div class="col-md-6  table-holder">
+            <p *ngIf="!bettpemarkets"><em>Loading...</em></p>  
+  
+            <div class="mt-4">
+            
+            </div>
+            <table class='table table-striped ' *ngIf="bettpemarkets">  
+                <thead>  
+                    <tr>  
+                        <th>ID</th>  
+                        <th>Bet Type</th>  
+                        <th>Market Type</th>  
+                        
+                       
+                    </tr>  
+                </thead>  
+                <tbody>  
+                    <tr *ngFor="let cnt of bettpemarkets">  
+                        <td>{{ cnt.betTypeMarketID }}</td>  
+                        <td>{{ cnt.bettype }}</td>  
+                        <td>{{ cnt.markeType }}</td>  
+                      
+                       
+                        <td>  
+                                <button  class="btn btn btn-success">Edit</button> |
+                            <button  (click)="delete(cnt.betTypeMarketID)" class="btn btn btn-danger">Delete</button>
+                        </td>  
+                    </tr>  
+                </tbody>  
+            </table> 
+        </div>
+<div class="col-md-6 input">
+    <div class="form-row">
+        <div class="col">
+            <div class="dropdown">
+                <button  class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                            {{bettypesName}}
+                        </button>
+                <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <div *ngFor="let bettype of bettypes">
+                        <a (click)="SelectedBettype(bettype.betypeid)" class="dropdown-item">{{bettype.bettype}}</a>
+                    </div>
+                   
+                 
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                            {{marketsName}}
+                        </button>
+                <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <div *ngFor="let market of markets">
+                        <a (click)="SelectedMarket(market.marketId)" class="dropdown-item">{{market.markeType}}</a>
+                    </div>
+                 
+                </div>
+            </div>
+
+        </div>
+       
+        <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">Map</button>
+      </div> 
+</div>
+
+<!-- <p>  
+    <button [routerLink]="['/Add-countries']" class="btn btn btn-outline-primary"> Create New</button>
+</p> -->
+
+        
+    </div>
+</div>

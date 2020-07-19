@@ -1,4 +1,4 @@
 export interface markets{
     marketId:number;
-    marketType:string;
+    markeType:string;
 }

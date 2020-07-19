@@ -19,7 +19,7 @@ export class AddMarketsComponent implements OnInit {
   ngOnInit(): void {
     this.getMarket();
     this.MarketForm=this.formBuilder.group({
-      marketType:['',Validators.required],
+      markeType:['',Validators.required],
     })
   }
   getMarket(){
@@ -61,6 +61,7 @@ export class AddMarketsComponent implements OnInit {
     const sport=this.MarketForm.value;
     this.AddMarkets(sport);
     this.getMarket();
+    this.resertForm();
   }
 
   resertForm(){

@@ -8,6 +8,7 @@ import { AddTournamentComponent } from './components/add-tournament/add-tourname
 import { AddSportTournamentComponent } from './components/add-sport-tournament/add-sport-tournament.component';
 import { AddBetTypeComponent } from './components/add-bet-type/add-bet-type.component';
 import { AddMarketsComponent } from './components/add-markets/add-markets.component';
+import { BettypemarketsComponent } from './components/bettypemarkets/bettypemarkets.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/AddSport',pathMatch:'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'MergeJoin', component:AddSportTournamentComponent},
   {path:'AddBettype', component:AddBetTypeComponent},
   {path:'AddMarket', component:AddMarketsComponent},
+  {path:'AddMarketBettype', component:BettypemarketsComponent},
 ];
 
 @NgModule({
