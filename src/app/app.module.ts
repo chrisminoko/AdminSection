@@ -13,7 +13,8 @@ import { AddSportTournamentComponent } from './components/add-sport-tournament/a
 import { AddBetTypeComponent } from './components/add-bet-type/add-bet-type.component';
 import { AddMarketsComponent } from './components/add-markets/add-markets.component';
 import { BettypemarketsComponent } from './components/bettypemarkets/bettypemarkets.component';
-import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tournamentbettyoe.component'; 
+import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tournamentbettyoe.component';
+import { OddseventsComponent } from './components/oddsevents/oddsevents.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tourn
     AddBetTypeComponent,
     AddMarketsComponent,
     BettypemarketsComponent,
-    TournamentbettyoeComponent
+    TournamentbettyoeComponent,
+    OddseventsComponent
   ],
   imports: [
     BrowserModule,

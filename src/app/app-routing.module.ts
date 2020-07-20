@@ -10,6 +10,7 @@ import { AddBetTypeComponent } from './components/add-bet-type/add-bet-type.comp
 import { AddMarketsComponent } from './components/add-markets/add-markets.component';
 import { BettypemarketsComponent } from './components/bettypemarkets/bettypemarkets.component';
 import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tournamentbettyoe.component';
+import { OddseventsComponent } from './components/oddsevents/oddsevents.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/AddSport',pathMatch:'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'AddMarket', component:AddMarketsComponent},
   {path:'AddMarketBettype', component:BettypemarketsComponent},
   {path:'AddTournamentBettype', component:TournamentbettyoeComponent},
+  {path:'AddOdds', component:OddseventsComponent},
 ];
 
 @NgModule({

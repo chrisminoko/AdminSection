@@ -80,15 +80,12 @@ export class AddEventComponent implements OnInit {
       console.log("It worked")
     }else{
       this.TournamentName="Please select Tournament";
-    
     }
     this.GetTournament();
     this.EventForm = {
       eventName:name,
       eventDate:date,
       tournamentId:this.tournamentId,
-      
-     
     }
  
     this.addSportToCountry(this.EventForm);

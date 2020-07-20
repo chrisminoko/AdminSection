@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-md-6  table-holder">
+            <p *ngIf="!oddseventsvm"><em>Loading...</em></p>
+
+            <div class="mt-4">
+
+            </div>
+            <table class='table table-striped ' *ngIf="oddseventsvm">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Market</th>
+                        <th>odds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cnt of oddseventsvm">
+                        <td>{{ cnt.eventName }}</td>
+                        <td>{{ cnt.eventDate }}</td>
+                        <td>{{ cnt.markeType }}</td>
+                        <td>{{ cnt.odds }}</td>
+                        <button (click)="delete(cnt.oddsId)" class="btn btn btn-danger">Delete</button>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6  input">
+            <form style="margin-bottom: 10px;">
+                <div class="form-row" [formGroup]="oddsForm">
+                    <div class="col">
+                        <input appcurrencyformatter=""  value=""
+                        class="form-control stake-input-box input-sm ng-pristine ng-valid ng-touched spinner"
+                        min="1" type="number" formControlName="odds">
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{eventsName}}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="triggerId">
+                                    <div *ngFor="let market of evnts">
+                                        <a (click)="SelectedEvent(market.eventId)"
+                                            class="dropdown-item">{{market.eventName}}</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{marketsName}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <div *ngFor="let market of markets">
+                                <a (click)="SelectedMarket(market.marketId)"
+                                    class="dropdown-item">{{market.markeType}}</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button (click)="onFormSubmit()"
+                    style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;"
+                    class="btn btn btn-primary btn-block">Add</button>
+            </form>
+            <div class="watermark">
+                <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG"
+                    width="300px" alt="">
+            </div>
+        </div>
+
+
+
+        <!-- <p>  
+    <button [routerLink]="['/Add-countries']" class="btn btn btn-outline-primary"> Create New</button>
+</p> -->
+
+
+    </div>
+</div>
