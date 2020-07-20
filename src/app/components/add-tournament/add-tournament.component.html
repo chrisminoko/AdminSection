@@ -11,14 +11,12 @@
             <table class='table table-striped ' *ngIf="tournament">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Tournament Name</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let cnt of tournament">
-                        <td>{{ cnt.tournamentId }}</td>
                         <td>{{ cnt.name }}</td>
 
                         <td>

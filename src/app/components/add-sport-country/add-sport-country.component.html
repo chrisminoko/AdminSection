@@ -11,7 +11,7 @@
             <table class='table table-striped ' *ngIf="sportCountryVm">  
                 <thead>  
                     <tr>  
-                        <th>Id</th>  
+                       
                         <th>Country</th>  
                         <th>Logo</th>  
                         <th>Sport</th>  
@@ -20,7 +20,7 @@
                 </thead>  
                 <tbody>  
                     <tr *ngFor="let cnt of sportCountryVm">  
-                        <td>{{ cnt.sportCountryId }}</td>  
+                       
                         <td>{{ cnt.countryname }}</td>  
                         <td><img  style="background-color: #643e94"  src="{{cnt.imageurl}}" width="50" height="50" alt=""></td>  
                         <td>{{ cnt.sportname }}</td>  
