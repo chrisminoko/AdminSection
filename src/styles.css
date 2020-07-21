@@ -11,3 +11,8 @@
     top: auto;
     left: 80%;
 }
+
+html,body{
+    overflow-x: hidden;
+    overflow-y: auto;
+  }

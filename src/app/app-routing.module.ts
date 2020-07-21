@@ -12,6 +12,7 @@ import { BettypemarketsComponent } from './components/bettypemarkets/bettypemark
 import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tournamentbettyoe.component';
 import { OddseventsComponent } from './components/oddsevents/oddsevents.component';
 
+
 const routes: Routes = [
   {path: '', redirectTo:'/AddSport',pathMatch:'full'},
   {path:'AddCountry', component:AddCountryComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'AddMarketBettype', component:BettypemarketsComponent},
   {path:'AddTournamentBettype', component:TournamentbettyoeComponent},
   {path:'AddOdds', component:OddseventsComponent},
+  
 ];
 
 @NgModule({

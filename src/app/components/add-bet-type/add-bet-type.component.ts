@@ -13,8 +13,10 @@ export class AddBetTypeComponent implements OnInit {
   bettype :bettypes[];
   bettypes :bettypes;
   BetTypeForm:any;
-  SportUpdate=null;
+  SportUpdate:number;
   FormTitle:string;
+  count: number;
+  title: string="Add Bettype";
   constructor(private _bettypeservice:BettypesService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
@@ -39,24 +41,36 @@ export class AddBetTypeComponent implements OnInit {
           this.getbetype();
           this.resertForm();
         });
-        
 
       }
     }else{
+        
+      this.title="Update";
+      this.bettypes.betypeid=this.SportUpdate;
       this._bettypeservice.updateBettype(bettype).subscribe(()=>{
         this.getbetype();
+        console.log("Fetched ID: "+this.SportUpdate)
         this.SportUpdate=null;
       })
     }
   }
 
   delete(id:number){
-    var ans= confirm("Do you want to delete Bet Type with Id: "+id)
-      if(ans){
-        this._bettypeservice.deleteBettype(id).subscribe((data:any)=>{
-          this.getbetype();
-        },error=> console.error(error))
+    
+    for (let index = 0; index < this.bettype.length; index++) {
+      if(this.bettype[index].betypeid==id){
+        var ans= confirm("Do you want to delete : "+ this.bettype[index].bettype)
+        if(ans){
+          this._bettypeservice.deleteBettype(id).subscribe((data:any)=>{
+            this.getbetype();
+          },error=> console.error(error))
+        }
+        break
       }
+      
+      
+    }
+
   }
 
   onFormSubmit(){
@@ -68,5 +82,18 @@ export class AddBetTypeComponent implements OnInit {
   resertForm(){
     this.BetTypeForm.reset();
   }
+
+  LoadDataForEdit(sportID:number){
+    this.count=0;
+    console.log("AM IN !!" + this.count)
+    this.title="Update";
+    this.SportUpdate=sportID;
+    console.log("ID LOADED: "+this.SportUpdate)
+    this._bettypeservice.getBettypeById(sportID).subscribe((data:any)=>{
+      console.log("Selected Sport : "+ data.bettype);
+      this.BetTypeForm.controls['bettype'].setValue(data.bettype);
+    })
+  }
+
 
 }
