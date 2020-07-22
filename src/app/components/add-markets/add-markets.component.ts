@@ -12,8 +12,10 @@ export class AddMarketsComponent implements OnInit {
   market :markets[];
   markets :markets;
   MarketForm:any;
-  SportUpdate=null;
+  SportUpdate:number;
+  count=1;
   FormTitle:string;
+  title: string="Add Market";
   constructor(private _marketservice:MarketsService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
@@ -37,14 +39,14 @@ export class AddMarketsComponent implements OnInit {
           this.getMarket();
           this.resertForm();
         });
-        
 
+      }else{
+        market.marketId=this.SportUpdate;
+        this._marketservice.updateMarket(market).subscribe(()=>{
+          this.getMarket();
+          this.SportUpdate=null;
+        })
       }
-    }else{
-      this._marketservice.updateMarket(market).subscribe(()=>{
-        this.getMarket();
-        this.SportUpdate=null;
-      })
     }
   }
 
@@ -66,6 +68,18 @@ export class AddMarketsComponent implements OnInit {
 
   resertForm(){
     this.MarketForm.reset();
+    this.title="Add Bet Type";
+    this.count=1;
   }
-
+  LoadDataForEdit(sportID:number){
+    this.count=0;
+    console.log("AM IN !!" + this.count)
+    this.title="Update";
+    this.SportUpdate=sportID;
+    console.log("ID LOADED: "+this.SportUpdate)
+    this._marketservice.getMarketById(sportID).subscribe((data:any)=>{
+      console.log("Selected Sport : "+ data.markeType);
+      this.MarketForm.controls['markeType'].setValue(data.markeType);
+    })
+  }
 }

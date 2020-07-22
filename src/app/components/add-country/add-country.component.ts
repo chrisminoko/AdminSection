@@ -14,7 +14,10 @@ export class AddCountryComponent implements OnInit {
   countries:countries;
   countryForm:any;
   countryUpdate=null;
+  SportUpdate:number;
+  count=1;
   FormTitle:string;
+  title: string="Add Market";
   constructor(private _countryservice:CountryService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
@@ -34,19 +37,19 @@ export class AddCountryComponent implements OnInit {
 
   AddCountry(country:countries){
     if(country!=undefined && country !=null){
-      if(this.countryUpdate==null){
+      if(this.SportUpdate==null){
         country.countryid=this.country.length+1;
         this._countryservice.addCountry(country).subscribe(()=>{
           this.getcountries();
           this.resertForm();
         });
         
-
       }
     }else{
+      country.countryid=this.SportUpdate;
       this._countryservice.updateCountry(country).subscribe(()=>{
         this.getcountries();
-        this.countryUpdate=null;
+       
       })
     }
   }
@@ -65,21 +68,22 @@ export class AddCountryComponent implements OnInit {
     this.AddCountry(country);
     this.getcountries();
   }
-  loadCountryToEdit(countryId:number){
-    this._countryservice.getCountryById(countryId).subscribe((data:any)=>{
-      this.country=data;
-      this.countryUpdate=countryId;
-      console.log('Found this', this.country)
-      this.countryForm.controls['name'].setValue(data[0].name);
-      this.countryForm.controls['flagUrl'].setValue(data[0].flagUrl);  
-    });
-  }
+
   resertForm(){
     this.countryForm.reset();
   }
 
-  setHeading(){
-    this.countryUpdate=null;
+  LoadDataForEdit(sportID:number){
+    this.count=0;
+    console.log("AM IN !!" + this.count)
+    this.title="Update";
+    this.SportUpdate=sportID;
+    console.log("ID LOADED: "+this.SportUpdate)
+    this._countryservice.getCountryById(sportID).subscribe((data:any)=>{
+      console.log("Selected Sport : "+ data.markeType);
+      this.countryForm.controls['name'].setValue(data.name);
+      this.countryForm.controls['flagUrl'].setValue(data.flagUrl);
+    })
   }
 
 }

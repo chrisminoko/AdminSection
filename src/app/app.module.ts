@@ -15,7 +15,7 @@ import { AddMarketsComponent } from './components/add-markets/add-markets.compon
 import { BettypemarketsComponent } from './components/bettypemarkets/bettypemarkets.component';
 import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tournamentbettyoe.component';
 import { OddseventsComponent } from './components/oddsevents/oddsevents.component';
-import { JwPaginationModule } from 'jw-angular-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,7 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     HttpClientModule ,
     FormsModule,
     ReactiveFormsModule,
-    JwPaginationModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

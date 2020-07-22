@@ -15,7 +15,7 @@ export class AddBetTypeComponent implements OnInit {
   BetTypeForm:any;
   SportUpdate:number;
   FormTitle:string;
-  count: number;
+  count=1;
   title: string="Add Bettype";
   constructor(private _bettypeservice:BettypesService,private formBuilder:FormBuilder) { }
 
@@ -42,16 +42,16 @@ export class AddBetTypeComponent implements OnInit {
           this.resertForm();
         });
 
-      }
-    }else{
+      }else{
         
-      this.title="Update";
-      this.bettypes.betypeid=this.SportUpdate;
-      this._bettypeservice.updateBettype(bettype).subscribe(()=>{
-        this.getbetype();
-        console.log("Fetched ID: "+this.SportUpdate)
-        this.SportUpdate=null;
-      })
+        this.title="Update";
+        bettype.betypeid=this.SportUpdate;
+        this._bettypeservice.updateBettype(bettype).subscribe(()=>{
+          this.getbetype();
+          console.log("Fetched ID: "+this.SportUpdate)
+          this.SportUpdate=null;
+        })
+      }
     }
   }
 
@@ -81,6 +81,8 @@ export class AddBetTypeComponent implements OnInit {
 
   resertForm(){
     this.BetTypeForm.reset();
+    this.title="Add Bet Type";
+    this.count=1;
   }
 
   LoadDataForEdit(sportID:number){

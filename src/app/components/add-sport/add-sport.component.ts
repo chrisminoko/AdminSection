@@ -19,8 +19,7 @@ export class AddSportComponent implements OnInit {
   FormTitle:string;
   title: string="Add Sport";
   count=1;
-  pageSize =4;
-  p: number = 1;
+ 
   constructor(private _sportservice:SportsService,private formBuilder:FormBuilder ,private _avRoute: ActivatedRoute,private _router:Router) { }
 
   ngOnInit(): void {
@@ -52,6 +51,7 @@ export class AddSportComponent implements OnInit {
         
         this.title="Update";
         sport.sportId=this.SportUpdate;
+        console.log(" Logged "+this.SportUpdate)
         this._sportservice.updateSport(sport).subscribe((data:any)=>{
           this.getSport();
           console.log("Edited : "+ data)
@@ -99,10 +99,6 @@ export class AddSportComponent implements OnInit {
     this.count=1;
   }
 
-  onChangePage(pageOfItems: Array<any>) {
-    // update current page of items
-    this.pageOfItems = pageOfItems;
-    this.pageSize=5;
-}
+
 
 }
