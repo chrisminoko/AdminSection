@@ -26,6 +26,10 @@ export class AddSportCountryComponent implements OnInit {
   country:countries[];
   countryId:number=0;
   sportId:number=0;
+  SportUpdate:number;
+  count=1;
+  FormTitle:string;
+  title: string="Map";
   ngOnInit(): void {
     this.DefaultSport();
     this.DefaultCountry();
@@ -98,11 +102,13 @@ export class AddSportCountryComponent implements OnInit {
 
   addSportToCountry(sportCountry: sportcountry) {
     if (sportCountry != undefined && sportCountry != null) {
-      this._sporcountyvmServices.AddSportCountry(sportCountry).subscribe(() => {
-        this.ShowSportCountry();
-        this.sportId = null;
-        this.countryId = null;
-      });
+      
+      if(this.SportUpdate==null){
+        this._sporcountyvmServices.AddSportCountry(sportCountry).subscribe(() => {
+          this.ShowSportCountry();
+          this.resertForm();
+       });
+      }
     }
   }
 
@@ -133,6 +139,34 @@ export class AddSportCountryComponent implements OnInit {
           this.ShowSportCountry();
         },error=> console.error(error))
       }
+  }
+
+  resertForm(){
+    this.sportCountryForm.reset();
+    this.title="Add Country";
+    this.count=1;
+  }
+
+  LoadDataForEdit(sportID:number, cid:number,sid:number){
+    this.count=0;
+    this.title="Update";
+    this.SportUpdate=sportID;
+    console.log("ID LOADED: "+this.SportUpdate)
+    for (let index = 0; index < this.country.length; index++) {
+      if(this.country[index].countryid==cid){
+        this.countryName=this.country[index].name;
+        break;
+      }
+    }
+
+       
+    for (let index = 0; index < this.sport.length; index++) {
+      if(this.sport[index].sportId==sid){
+        this.sportName=this.sport[index].name;
+        break;
+      }
+      
+    }
   }
 
 }

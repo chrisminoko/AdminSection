@@ -16,11 +16,17 @@ export class SportcountryService {
     return this._http.get<sportcountryvm[]>(this.rootUrl+'api/SportCountry/showsportcountry')
   }
 
+  getSportCountryById(id:number){
+    return this ._http.get(this.rootUrl+'api/Country/Search?sportid='+id);
+  }
   AddSportCountry(sportcountry){
-    return this ._http.post(this.rootUrl+"api/SportCountry/",sportcountry);
+    return this ._http.post(this.rootUrl+'api/SportCountry/',sportcountry);
   }
 
   deleteSportCountry(id:number){
     return this._http.delete(this.rootUrl+'api/SportCountry/'+id)
+  }
+  updateSportCountry(sportcountry){
+    return this ._http.put(this.rootUrl+'api/SportCountry/',sportcountry);
   }
 }

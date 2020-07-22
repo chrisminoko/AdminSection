@@ -17,7 +17,7 @@ export class AddCountryComponent implements OnInit {
   SportUpdate:number;
   count=1;
   FormTitle:string;
-  title: string="Add Market";
+  title: string="Sport";
   constructor(private _countryservice:CountryService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {

@@ -15,14 +15,17 @@
                         <th>Tournament</th>  
                         <th>Event</th>  
                         <th>Date</th>  
+                        <th>Time</th>  
                     </tr>  
                 </thead>  
                 <tbody>  
                     <tr *ngFor="let cnt of evnts">  
                         <td>{{ cnt.tournamentName }}</td>  
                         <td>{{ cnt.eventName }}</td>  
-                        <td>{{ cnt.eventDate }}</td>  
-                        <button (click)="delete(cnt.eventId)"  class="btn btn btn-danger">Delete</button>
+                        <td>{{ cnt.eventDate | date : "EEEE,MMMM,dd,yyyy" }}</td>  
+                        <td>{{ cnt.eventDate  | date:'HH:mm:ss' }}</td>  
+                        <button  class="btn btn btn-success btn-sm">Edit</button> |
+                        <button (click)="delete(cnt.eventId)"  class="btn btn btn-danger btn-sm">Delete</button>
                     
                 </tbody>  
             </table> 
@@ -34,7 +37,7 @@
                     <input #Name type="text" class="form-control" id="eventName" required placeholder="Event name" formControlName="eventName">
                   </div>
                   <div class="col">
-                    <input #Date type="text" class="form-control" id="eventDate" required placeholder="Date " id="eventDate" formControlName="eventDate">
+                    <input #Date type="datetime-local" class="form-control" id="eventDate" required placeholder="Date " id="eventDate" formControlName="eventDate">
                   
                 </div>
                   <div class="col">
@@ -59,13 +62,6 @@
                 <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG" width="300px" alt="">
           </div>
         </div>
-
-     
-
-<!-- <p>  
-    <button [routerLink]="['/Add-countries']" class="btn btn btn-outline-primary"> Create New</button>
-</p> -->
-
-        
+      
     </div>
 </div>
