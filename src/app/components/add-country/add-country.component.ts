@@ -24,7 +24,7 @@ export class AddCountryComponent implements OnInit {
    this.getcountries();
    this.countryForm=this.formBuilder.group({
     name:['',Validators.required],
-    flagUrl:['',Validators.required],
+    flagurl:['',Validators.required],
    })
   }
 
@@ -71,18 +71,21 @@ export class AddCountryComponent implements OnInit {
 
   resertForm(){
     this.countryForm.reset();
+    this.title="Add Country";
+    this.count=1;
   }
 
   LoadDataForEdit(sportID:number){
     this.count=0;
-    console.log("AM IN !!" + this.count)
     this.title="Update";
     this.SportUpdate=sportID;
     console.log("ID LOADED: "+this.SportUpdate)
     this._countryservice.getCountryById(sportID).subscribe((data:any)=>{
-      console.log("Selected Sport : "+ data.markeType);
+     
       this.countryForm.controls['name'].setValue(data.name);
-      this.countryForm.controls['flagUrl'].setValue(data.flagUrl);
+      console.log("Selected Country :"+data.name)
+      this.countryForm.controls['flagurl'].setValue(data.flagurl);
+      console.log("Selected URL :"+data.flagurl);
     })
   }
 

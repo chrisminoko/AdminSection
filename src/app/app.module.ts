@@ -15,6 +15,8 @@ import { AddMarketsComponent } from './components/add-markets/add-markets.compon
 import { BettypemarketsComponent } from './components/bettypemarkets/bettypemarkets.component';
 import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tournamentbettyoe.component';
 import { OddseventsComponent } from './components/oddsevents/oddsevents.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { OddseventsComponent } from './components/oddsevents/oddsevents.componen
     BettypemarketsComponent,
     TournamentbettyoeComponent,
     OddseventsComponent,
-    
+    MainPageComponent,
+ 
    
   ],
   imports: [

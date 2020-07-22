@@ -1,70 +1,73 @@
 <div class="container-fluid slide-top">
     <div class="row ">
-    
-            
-        <div class="col-md-6  table-holder">
-            <p *ngIf="!sport"><em>Loading...</em></p>  
-  
-            <div class="mt-4">
-            
-            </div>
-            <table class='table table-striped  ' *ngIf="sport">  
-                <thead>  
-                    <tr>  
-                        <th>Sport Name</th>  
-                        <th>Logo</th>  
-                        <th>Actions</th>  
-                    </tr>  
-                </thead>  
-                <tbody>  
-                    <tr *ngFor="let cnt of sport">  
-                        <td>{{ cnt.name }}</td>  
-                       
-                        <td>  <img  style="background-color: #643e94"  src="{{cnt.imageurl}}" width="50" height="50" alt=""> </td>
-                        <td>  
-                                <button (click)="LoadDataForEdit(cnt.sportId)" class="btn btn btn-success">Edit</button> |
-                            <button (click)="delete(cnt.sportId)"  class="btn btn btn-danger">Delete</button>
-                        </td>  
-                    </tr>  
-                </tbody>  
-            </table> 
 
-           
+
+        <div class="col-md-6  table-holder">
+            <p *ngIf="!sport"><em>Loading...</em></p>
+
+            <div class="mt-4">
+
+            </div>
+            <table class='table table-striped  ' *ngIf="sport">
+                <thead>
+                    <tr>
+                        <th>Sport Name</th>
+                        <th>Logo</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cnt of sport">
+                        <td>{{ cnt.name }}</td>
+
+                        <td> <img style="background-color: #643e94" src="{{cnt.imageurl}}" width="50" height="50"
+                                alt=""> </td>
+                        <td>
+                            <button (click)="LoadDataForEdit(cnt.sportId)" class="btn btn btn-success">Edit</button> |
+                            <button (click)="delete(cnt.sportId)" class="btn btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
         </div>
 
         <div class="col-md-6  input">
-            <form action="" [formGroup]="SportForm" style="margin-bottom: 10px;" >
+            <form action="" [formGroup]="SportForm" style="margin-bottom: 10px;">
                 <div class="form-row">
-                  <div class="col">
-                    <input type="text" class="form-control" id="name" required placeholder="Sport Name" formControlName="name">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" required placeholder="Sport Logo Url" id="imageUrl" formControlName="imageUrl">
-                  </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="name" required placeholder="Sport Name"
+                            formControlName="name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" required placeholder="Sport Logo Url" id="imageUrl"
+                            formControlName="imageUrl">
+                    </div>
                 </div>
-                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">{{title}}</button>
+                <button (click)="onFormSubmit()"
+                    style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;"
+                    class="btn btn btn-primary btn-block">{{title}}</button>
                 <ng-template [ngIf]="count===0">
-                    <button (click)="resertForm()" style="margin-top: 10px; background-color: #d2c14d; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">Cancel</button>
-                </ng-template>   
+                    <button (click)="resertForm()"
+                        style="margin-top: 10px; background-color: #d2c14d; border-radius: 0%; border: none;"
+                        class="btn btn btn-primary btn-block scale-in-ver-top">Cancel</button>
+                </ng-template>
             </form>
 
+            <div class="watermark scale-in-ver-top">
+                <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG"
+                    width="300px" alt="">
+            </div>
 
 
-         
-
-
-              <div class="watermark">
-                <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG" width="300px" alt="">
-              </div>
-           
-              
         </div>
 
-<!-- <p>  
+        <!-- <p>  
     <button [routerLink]="['/Add-countries']" class="btn btn btn-outline-primary"> Create New</button>
 </p> -->
-<!-- Button trigger modal -->
+        <!-- Button trigger modal -->
 
-        
+
     </div>
 </div>

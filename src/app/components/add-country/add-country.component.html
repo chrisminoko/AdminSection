@@ -11,7 +11,6 @@
             <table class='table table-striped ' *ngIf="country">  
                 <thead>  
                     <tr>  
-                        <th>Id</th>  
                         <th>Name</th>  
                         <th>Flag</th>  
                         <th>Actions</th>  
@@ -19,8 +18,7 @@
                 </thead>  
                 <tbody>  
                     <tr *ngFor="let cnt of country">  
-                        <td>{{ cnt.countryid }}</td>  
-                        <td>{{ cnt.name }}</td>  
+                        <td>{{cnt.flagurl}}</td>
                        
                         <td>  <img src="https://www.countryflags.io/{{cnt.flagurl}}/flat/64.png" alt=""> </td>
                         <td>  
@@ -39,12 +37,15 @@
                     <input type="text" class="form-control" id="name" required placeholder="Country name" formControlName="name">
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" required placeholder="Country Code" id="flagUrl" formControlName="flagUrl">
+                    <input type="text" class="form-control" id="flagurl" required placeholder="Country Code" id="flagurl" formControlName="flagurl">
                   </div>
                 </div>
-                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">Add</button>
-              </form>
-              <div class="watermark">
+                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">{{title}}</button>
+                <ng-template [ngIf]="count===0">
+                    <button (click)="resertForm()" style="margin-top: 10px; background-color: #d2c14d; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block scale-in-ver-top">Cancel</button>
+                </ng-template>  
+            </form>
+              <div class="watermark scale-in-ver-top">
                 <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG" width="300px" alt="">
           </div>
         </div>

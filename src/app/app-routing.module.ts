@@ -11,6 +11,7 @@ import { AddMarketsComponent } from './components/add-markets/add-markets.compon
 import { BettypemarketsComponent } from './components/bettypemarkets/bettypemarkets.component';
 import { TournamentbettyoeComponent } from './components/tournamentbettyoe/tournamentbettyoe.component';
 import { OddseventsComponent } from './components/oddsevents/oddsevents.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'AddMarketBettype', component:BettypemarketsComponent},
   {path:'AddTournamentBettype', component:TournamentbettyoeComponent},
   {path:'AddOdds', component:OddseventsComponent},
+  {path:'Entrance', component:MainPageComponent},
   
 ];
 

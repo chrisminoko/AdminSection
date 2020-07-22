@@ -15,6 +15,9 @@ export class AddTournamentComponent implements OnInit {
   tournamentForm:any;
   tournamentUpdate=null;
   FormTitle:string;
+  count=1;
+  title: string="Add Tournament";
+  SportUpdate:number;
   constructor(private _tournamentservice:TournamentService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
@@ -42,6 +45,8 @@ export class AddTournamentComponent implements OnInit {
 
       }
     }else{
+      this.title="Update";
+      tournament.tournamentId=this.SportUpdate;
       this._tournamentservice.updateTournament(tournament).subscribe(()=>{
         this.getTournament();
         this.tournamentUpdate=null;
@@ -66,6 +71,19 @@ export class AddTournamentComponent implements OnInit {
 
   resertForm(){
     this.tournamentForm.reset();
+    this.title="Add Tournament";
+    this.count=1;
+  }
+
+  LoadDataForEdit(sportID:number){
+    this.count=0;
+    this.title="Update";
+    this.SportUpdate=sportID;
+    console.log("ID LOADED: "+this.SportUpdate)
+    this._tournamentservice.getTournamentById(sportID).subscribe((data:any)=>{
+      console.log("Selected Tournament : "+ data.name);
+      this.tournamentForm.controls['name'].setValue(data.name);
+    })
   }
 
 }

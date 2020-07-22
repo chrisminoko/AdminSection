@@ -20,7 +20,7 @@
                         <td>{{ cnt.name }}</td>
 
                         <td>
-                            <button class="btn btn btn-success">Edit</button> |
+                            <button  (click)="LoadDataForEdit(cnt.tournamentId)"  class="btn btn btn-success">Edit</button> |
                             <button (click)="delete(cnt.tournamentId)" class="btn btn btn-danger">Delete</button>
                         </td>
                     </tr>
@@ -36,11 +36,12 @@
                             formControlName="name">
                     </div>
                 </div>
-                <button (click)="onFormSubmit()"
-                    style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;"
-                    class="btn btn btn-primary btn-block">Add</button>
+                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">{{title}}</button>
+                <ng-template [ngIf]="count===0">
+                    <button (click)="resertForm()" style="margin-top: 10px; background-color: #d2c14d; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block scale-in-ver-top">Cancel</button>
+                </ng-template>   
             </form>
-            <div class="watermark">
+            <div class="watermark scale-in-ver-top">
                 <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/115382043.JPG"
                     width="300px" alt="">
             </div>
