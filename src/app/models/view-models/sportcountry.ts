@@ -3,6 +3,6 @@ export interface sportcountryvm {
     countryname: string;
     sportname: string;
     imageurl: string;
-    ilagurl: string;
+    flagurl: string;
 
 }

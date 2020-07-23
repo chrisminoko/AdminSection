@@ -12,6 +12,8 @@
                 <thead>  
                     <tr>  
                        
+                        <th>ID</th>  
+                       
                         <th>Country</th>  
                         <th>Logo</th>  
                         <th>Sport</th>  
@@ -21,13 +23,15 @@
                 <tbody>  
                     <tr *ngFor="let cnt of sportCountryVm">  
                        
-                        <td>{{ cnt.countryname }}</td>  
+                        <td>{{ cnt.sportCountryId }}</td>  
+                        <td>{{ cnt.sportname }}</td> 
+                      
                         <td><img  style="background-color: #643e94"  src="{{cnt.imageurl}}" width="50" height="50" alt=""></td>  
-                        <td>{{ cnt.sportname }}</td>  
+                        <td>{{ cnt.countryname }}</td>   
                         <td>  <img src="https://www.countryflags.io/{{cnt.flagurl}}/flat/64.png" alt=""> </td>
                        
                         <td>  
-                                <button (click)="LoadDataForEdit(cnt.sportCountryId,cnt.sportCountryId,cnt.sportCountryId)" class="btn btn btn-success">Edit</button> |
+                                <button (click)=" LoadDataForEdit(cnt.sportCountryId)" class="btn btn btn-success">Edit</button> |
                             <button (click)="delete(cnt.sportCountryId)"  class="btn btn btn-danger">Delete</button>
                         </td>  
                     </tr>  
@@ -69,8 +73,13 @@
                    
 
                 </div>
-                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">Map</button>
-              </div>
+                <button (click)="onFormSubmit()" style="margin-top: 10px; background-color: #7386d5; border-radius: 0%; border: none;" class="btn btn btn-primary btn-block">{{title}}</button>
+                <ng-template [ngIf]="count===0">
+                    <button (click)="resertForm()"
+                        style="margin-top: 10px; background-color: #d2c14d; border-radius: 0%; border: none;"
+                        class="btn btn btn-primary btn-block scale-in-ver-top">Cancel</button>
+                </ng-template> 
+            </div>
 
                 
           
